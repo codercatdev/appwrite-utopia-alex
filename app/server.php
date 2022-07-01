@@ -83,6 +83,16 @@ App::get('/goodbye')
         }
     );
 
+    App::get('/alex')
+    ->groups(['api'])
+    ->inject('request')
+    ->inject('response')
+    ->action(
+        function($request, $response) {
+            $response->json(['Whatup' => 'Alex']);
+        }
+    );
+
 /*
     Configure the Swoole server to respond with the Utopia app.    
 */
